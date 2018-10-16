@@ -1,8 +1,8 @@
 export default [
-  // user
+  // user 布局
   {
     path: '/user',
-    component: '../layouts/UserLayout',
+    component: '../layouts/UserLayout', // 路由中添加全局组件
     routes: [
       { path: '/user', redirect: '/user/login' },
       { path: '/user/login', component: './User/Login' },
@@ -10,7 +10,7 @@ export default [
       { path: '/user/register-result', component: './User/RegisterResult' },
     ],
   },
-  // app
+  // app 布局
   {
     path: '/',
     component: '../layouts/BasicLayout',
@@ -23,11 +23,15 @@ export default [
         path: '/dashboard',
         name: 'dashboard',
         icon: 'dashboard',
+        hideChildrenInMenu: false,
         routes: [
           {
             path: '/dashboard/analysis',
             name: 'analysis',
             component: './Dashboard/Analysis',
+            hideInMenu: false,
+            hideChildrenInMenu: false,
+            hideInBreadcrumb: false,
           },
           {
             path: '/dashboard/monitor',
@@ -38,6 +42,23 @@ export default [
             path: '/dashboard/workplace',
             name: 'workplace',
             component: './Dashboard/Workplace',
+          },
+        ],
+      },
+      // rich text
+      {
+        path: '/richtext',
+        name: 'richtext', // 路由名称
+        icon: 'dashboard',
+        hideChildrenInMenu: false,
+        routes: [
+          {
+            path: '/richtext/editrich',
+            name: 'editrich', // 路由名称
+            component: './RichText/RichText',
+            // hideInMenu: false,
+            // hideChildrenInMenu: false,
+            // hideInBreadcrumb: false,
           },
         ],
       },
