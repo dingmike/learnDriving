@@ -5,7 +5,7 @@
 import React from 'react';
 import { Button, notification, Card } from 'antd';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+// import 'react-quill/dist/quill.snow.css';
 
 export default class EditRich extends React.Component {
   state = {
@@ -18,15 +18,15 @@ export default class EditRich extends React.Component {
     });
   };
 
-  prompt = () => {
+  prompt = (props, state) => {
     notification.open({
       message: 'We got value:',
-      description: <span dangerouslySetInnerHTML={{ __html: this.state.value }} />,
+      description: <span dangerouslySetInnerHTML={{ __html: state.value }} />,
     });
   };
 
   modules = () => {
-    let toolsBar = {
+    const toolsBar = {
       toolbar: [
         [{ header: [1, 2, false] }],
         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
@@ -37,8 +37,9 @@ export default class EditRich extends React.Component {
     };
     return toolsBar;
   };
+
   formats = () => {
-    let formatsList = {
+    const formatsList = {
       formats: [
         'header',
         'bold',
@@ -57,6 +58,7 @@ export default class EditRich extends React.Component {
   };
 
   render() {
+    const { value } = this.state;
     const toolsBar = {
       toolbar: [
         [{ header: '1' }, { header: '2' }, { font: [] }],
@@ -92,7 +94,7 @@ export default class EditRich extends React.Component {
     return (
       <Card title="富文本编辑器">
         <ReactQuill
-          value={this.state.value}
+          value={value}
           onChange={this.handleChange}
           modules={toolsBar}
           formats={formatsList}
