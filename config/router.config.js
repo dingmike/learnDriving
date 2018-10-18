@@ -1,5 +1,6 @@
 export default [
   // user 布局
+
   {
     path: '/user',
     component: '../layouts/UserLayout', // 路由中添加全局组件
