@@ -11,7 +11,7 @@ export default [
       { path: '/user/register-result', component: './User/RegisterResult' },
     ],
   },
-  // app 布局
+  // app 布局df
   {
     path: '/',
     component: '../layouts/BasicLayout',
