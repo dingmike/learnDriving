@@ -19,7 +19,6 @@ class Center extends PureComponent {
     inputVisible: false,
     inputValue: '',
   };
-
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
